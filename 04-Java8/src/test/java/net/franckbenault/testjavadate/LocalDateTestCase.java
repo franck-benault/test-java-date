@@ -17,6 +17,14 @@ public class LocalDateTestCase {
 		
 		LocalDate date = LocalDate.of(2015, Month.JUNE, 23);
 		assertNotNull(date);
+		assertEquals(date.getYear(),2015);
+	}
+
+	@Test
+	public void test01bCreationNow() {
+		
+		LocalDate date = LocalDate.now();
+		assertNotNull(date);
 	}
 	
 	@Test(expected=DateTimeException.class)
