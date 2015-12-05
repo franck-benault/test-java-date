@@ -3,6 +3,7 @@ package net.franckbenault.testjavadate;
 import static org.junit.Assert.*;
 
 import java.time.DateTimeException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
@@ -25,6 +26,19 @@ public class LocalDateTimeTestCase {
 		
 	}
 	
+	@Test
+	public void test01bCreationFromDateTime() {
+		
+		LocalDate date = LocalDate.now();
+		LocalTime time = LocalTime.now();
+		
+		LocalDateTime dateTime = LocalDateTime.of(date,time);
+		assertNotNull(dateTime);
+		
+	}
+	
+	
+	
 	@Test(expected=DateTimeException.class)
 	public void test02CreationInvalideHour() {
 		
@@ -40,30 +54,5 @@ public class LocalDateTimeTestCase {
 
 	}
 	
-	@Test
-	public void test03Plus() {
-		
-		LocalTime time = LocalTime.of(21, 50);		
-		time = time.plusHours(4);
-		assertEquals(time.getHour(),1);
-		
-	}
 	
-	@Test
-	public void test04Minus() {
-		
-		LocalTime time = LocalTime.of(21, 50);	
-		time = time.minusMinutes(4);
-		assertEquals(time.getMinute(),46);
-		
-	}
-	
-	@Test
-	public void test05With() {
-		LocalTime time = LocalTime.of(21, 50);	
-		time = time.withHour(5);
-		assertEquals(time.getHour(),5);
-
-	}
-
 }
